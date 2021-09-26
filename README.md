@@ -2,21 +2,19 @@
 
 ![Main image](main.png)
 
-Convert pdf files into spoken audio using google text to speech package and building a user-friendly ready-made interface using [Gradio package](https://www.gradio.app/). 
+Convert video files into spoken video using google text to speech package and building a user-friendly ready-made interface using [Gradio package](https://www.gradio.app/). 
 
 ## Installation
 
 Fork or clone the repo and run 
 
 ```bash
-pip install -rrequirements.txt
+pip install -r requirements.txt
 ```
 
 ## Usage
 
-Follow a step-by-step guide tutorial in that Medium article!
-
-```
+Follow a step-by-step guide tutorial in my blog [ruslanmv.com]( ruslanmv.com)
 
 ## Contributing
 
@@ -27,3 +25,4 @@ Please make sure to update tests as appropriate.
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
