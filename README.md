@@ -1,4 +1,4 @@
-# Text to Speech using Gradio
+# Video Translator using Gradio
 
 ![Main image](main.png)
 
