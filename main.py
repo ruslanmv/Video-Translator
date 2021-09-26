@@ -1,14 +1,13 @@
+# coding=utf8
 from gtts import gTTS
 import gradio as gr
 import os
 import speech_recognition as sr
 from googletrans import Translator, constants
 from pprint import pprint
-# pip install moviepy
+#pip install moviepy
 #pip3 install googletrans
 from moviepy.editor import *
-
-
 def video_to_translate(file_obj,initial_language,final_language):
 # Insert Local Video File Path
     videoclip = VideoFileClip(file_obj.name)
@@ -54,7 +53,6 @@ def video_to_translate(file_obj,initial_language,final_language):
     videoclip.write_videofile("new_filename.mp4")
     #return 'audio.wav'
     return 'new_filename.mp4'
-
 
 examples = [
     [os.path.abspath("obama.mp4")],
