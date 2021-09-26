@@ -54,9 +54,10 @@ def video_to_translate(file_obj,initial_language,final_language):
     #return 'audio.wav'
     return 'new_filename.mp4'
 
+
 examples = [
-    [os.path.abspath("obama.mp4")],
-    [os.path.abspath("steve.mp4")]
+    [os.path.abspath("steve.mp4")],
+    [os.path.abspath("obama.mp4")]
 ]
 
 
@@ -69,10 +70,12 @@ gr.Interface(fn = video_to_translate,
             outputs = 'video', 
             verbose = True,
             title = 'Video Translator',
-            description = 'A simple application that translate English video files  to  Italian, Spanish, Russian or English Audio . Upload your own file, or click one of the examples to load them. Wait one minute to process.',
+            description = 'A simple application that translate English video files  to  Italian, Spanish, Russian or English . Upload your own file, or click one of the examples to load them. Wait one minute to process.',
              article = 
                         '''<div>
-                            <p style="text-align: center"> All you need to do is to upload the pdf file and hit submit, then wait for compiling. After that click on Play/Pause for listing to the video. The video is saved in a mp4 format.</p>
+                            <p style="text-align: center"> All you need to do is to upload the mp4 file and hit submit, then wait for compiling. After that click on Play/Pause for listing to the video. The video is saved in a mp4 format.
+                            For more information visit <a href="https://ruslanmv.com/">ruslanmv.com</a>
+                            </p>
                         </div>''',
                      examples=examples
             ).launch()
