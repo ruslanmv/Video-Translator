@@ -29,8 +29,6 @@ def video_to_translate(file_obj,initial_language,final_language):
     elif initial_language == "Japanese":
         lang_in='ja-JP'
 
-
-
     # open the file
     with sr.AudioFile("test.wav") as source:
         # listen for the data (load audio to memory)
@@ -48,18 +46,18 @@ def video_to_translate(file_obj,initial_language,final_language):
         lang='ru'
     elif final_language == "German":
         lang='de'
-
+    elif final_language == "Japanese":
+        lang='ja' 
+    elif final_language == "Chinese":
+        lang='zh-CN'               
     print(lang)
     # init the Google API translator
     translator = Translator()
     translation = translator.translate(text, dest=lang)
     #translation.text
     trans=translation.text
-
-
     myobj = gTTS(text=trans, lang=lang, slow=False) 
     myobj.save("audio.wav") 
-
     # loading audio file
     audioclip = AudioFileClip("audio.wav")
     
@@ -71,7 +69,7 @@ def video_to_translate(file_obj,initial_language,final_language):
     return 'new_filename.mp4'
 
 initial_language = gr.inputs.Dropdown(["English","Italian","Japanese","Russian","Spanish","German"])
-final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English"])
+final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English","Japanese","Chinese"])
 
 
 gr.Interface(fn = video_to_translate,
@@ -86,5 +84,10 @@ gr.Interface(fn = video_to_translate,
                             For more information visit <a href="https://ruslanmv.com/">ruslanmv.com</a>
                             </p>
                         </div>''',
-            examples=[['obama.mp4',"English",'Spanish']]         
+            examples=[['obama.mp4',"English",'Spanish'],
+                      ['obama.mp4',"English",'Italian'],
+                      ['obama.mp4',"English",'German'],
+                      ['obama.mp4',"English",'Japanese'],
+                      ['obama.mp4',"English",'Chinese']
+                    ]         
             ).launch()
