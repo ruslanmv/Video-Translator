@@ -70,15 +70,6 @@ def video_to_translate(file_obj,initial_language,final_language):
     #return 'audio.wav'
     return 'new_filename.mp4'
 
-
-examples = [
-    [os.path.abspath("English-Steve-Jobs.mp4")],
-    [os.path.abspath("Russian-Putin.mp4")],
-    [os.path.abspath("Italian-Conte.mp4")],
-    [os.path.abspath("Japanese-DragonBall.mp4")]
-]
-
-
 initial_language = gr.inputs.Dropdown(["English","Italian","Japanese","Russian","Spanish","German"])
 final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English"])
 
@@ -89,14 +80,11 @@ gr.Interface(fn = video_to_translate,
             verbose = True,
             title = 'Video Translator',
             description = 'A simple application that translate from English,Italian ,Japanese ,Russian ,Spanish and German video files  to  Italian, Spanish, Russian or English . Upload your own file, or click one of the examples to load them. Wait one minute to process.',
-             article = 
+            article = 
                         '''<div>
                             <p style="text-align: center"> All you need to do is to upload the mp4 file and hit submit, then wait for compiling. After that click on Play/Pause for listing to the video. The video is saved in a mp4 format.
                             For more information visit <a href="https://ruslanmv.com/">ruslanmv.com</a>
                             </p>
                         </div>''',
-                     examples=examples
+            examples=[['obama.mp4',"English",'Spanish']]         
             ).launch()
-
-        
-
