@@ -60,13 +60,13 @@ def video_to_translate(file_obj,initial_language,final_language):
     myobj.save("audio.wav") 
     # loading audio file
     audioclip = AudioFileClip("audio.wav")
-    
     # adding audio to the video clip
     new_audioclip = CompositeAudioClip([audioclip])
     videoclip.audio = new_audioclip
-    videoclip.write_videofile("new_filename.mp4")
+    new_video="video_translated_"+lang+"mp4"
+    videoclip.write_videofile(new_video)
     #return 'audio.wav'
-    return 'new_filename.mp4'
+    return new_video
 
 initial_language = gr.inputs.Dropdown(["English","Italian","Japanese","Russian","Spanish","German"])
 final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English","Japanese","Chinese"])
