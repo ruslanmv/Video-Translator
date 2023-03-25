@@ -26,6 +26,8 @@ def video_to_translate(file_obj,initial_language,final_language):
         lang_in='de-DE'
     elif initial_language == "Japanese":
         lang_in='ja-JP'
+    elif initial_language == "Portuguese":
+        lang_in='pt-BR'
     # open the file
     with sr.AudioFile("test.wav") as source:
         # listen for the data (load audio to memory)
@@ -44,7 +46,9 @@ def video_to_translate(file_obj,initial_language,final_language):
     elif final_language == "German":
         lang='de'
     elif final_language == "Japanese":
-        lang='ja'               
+        lang='ja'
+    elif final_language == "Portuguese":
+        lang='pt'                  
     print(lang)
     # init the Google API translator
     translator = Translator()
@@ -64,8 +68,8 @@ def video_to_translate(file_obj,initial_language,final_language):
     #return 'audio.wav'
     return new_video
 
-initial_language = gr.inputs.Dropdown(["English","Italian","Japanese","Russian","Spanish","German"])
-final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English","Japanese"])
+initial_language = gr.inputs.Dropdown(["English","Italian","Japanese","Russian","Spanish","German","Portuguese"])
+final_language = gr.inputs.Dropdown([ "Russian","Italian","Spanish","German","English","Japanese","Portuguese"])
 
 
 gr.Interface(fn = video_to_translate,
@@ -83,6 +87,7 @@ gr.Interface(fn = video_to_translate,
             examples=[['obama.mp4',"English",'Spanish'],
                       ['obama.mp4',"English",'Italian'],
                       ['obama.mp4',"English",'German'],
-                      ['obama.mp4',"English",'Japanese']
+                      ['obama.mp4',"English",'Japanese'],
+                      ['obama.mp4',"English",'Portuguese']
                     ]         
             ).launch()
